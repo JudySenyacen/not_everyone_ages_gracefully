@@ -45,8 +45,6 @@
   )
 )
 
-
-
 = Introduction
 - Motivation
   - Global challenges in fiscal sustainability.
@@ -61,117 +59,37 @@
 -  What are the policy trade-offs for Latin American countries with different fiscal constraints?
 
 
-= Model and Methodology
 
-== Novel Contributions of the Model
+#include "secciones/modelo.typ"
 
-- Unlike traditional OLG models that assume homogeneous agents, ours explicitly incorporates *high-skill and low-skill workers*, capturing:
-    - *Differences in income, labor supply decisions, and pension contributions*.
-    - Distinct fiscal impacts of reforms on each group.
-- Inclusion of heterogeneous agents: high-skill and low-skill workers.
-- Calibration for three Latin American countries, ensuring relevance for emerging economies.
+#include "secciones/datos.typ"
 
-== Overlapping Generations Model (OLG)
+#include "secciones/resultados_simulacion.typ"
 
-=== Dynamic stochastic general equilibrium (DSGE) framework.
-The model presented here is based on and belongs to this generation of OLG models. It is a dynamic and stochastic general equilibrium model that incorporates idiosyncratic risks into labor productivity. The price of factors responds to changes in the behavior of agents, and the government enters as an agent that collects tax revenue to finance its spending. The aggregate amounts of the economy grow on a balanced growth trajectory given by the rate of population growth $n_p$. 
-
-==== Demographic dynamics (survival probabilities, intergenerational transfers).
-In each period $t$, the economy is populated by $J$ overlapping generations indexed by $j = 1, ..., J$. In each generation $J$, there are two groups of households: low and high skills, indexed by $s=1$ for the most qualified households and $s=2$ the least qualified households, if otherwise indicated, both skill groups have the same parameters. Survival from one period to the next is assumed to be stochastic and that $psi_(j,s)$ is the probability that an agent will survive from age $j-1$ to age $j$, conditional on living in the age $j-1$, for the skill class $s$. 
-
-The size of the cohort corresponding to age $j$ in the period $t$ is
-
-#mitext(`
-		\begin{equation}
- 		 N_{j,s,t} =  \psi_{j,s,t}N_{j-1, s,t-1} \quad \text{con} \quad N_{1,t} = (1+n_{p,t})N_{1,s,t-1}
-		\end{equation}
-`)
-
-
-
-#lorem(150) (see Eq.~@eq1).
-
-$
-c^2 = a^2 + b^2
-$ <eq1>
-where ...
-
-$
-  x = integral_0^x d x #<eqa>\
-  (u v)' = u' v + v' u #<eqb>
-$ <eq2>
-
-Eq.~@eqa is a simple integral, while Eq.~@eqb is the derivative of a product of two functions. These equations are grouped in Eq.~@eq2.
-
-#lorem(50)
-
-== Section
-#lorem(50) @Tha600 @Pyt530 @Pyt520.
-
-=== Subsection
-#lorem(50)
-
-= Tables
-
-Below is Table~@tab:tab1.
-
-#let tab1 = {
-  table(
-  columns: 3,
-  table.header(
-    [*Header 1*],
-    [*Header 2*],
-    [*Header 3*],
-  ),
-  [Row 1], [12.0], [92.1],
-  [Row 2], [16.6], [104],
-)
-}
-
-#figure(
-    tab1,
-    kind: table,
-    caption : [Example]
-) <tab:tab1>
-
-= Figures
-
-== Simple figure
-
-Below is Fig.~@fig:logo.
-
-#figure(
-  image("images/typst-logo.svg", width: 50%),
-  caption : [Typst logo - Credit: \@fenjalien]
-) <fig:logo>
-
-== Subfigures
-
-=== Subfigures
-
-Below are Figs.~@figa and~@figb, which are part of Fig.~@fig:typst.
-
-#subfigure(
-figure(image("images/typst-logo.svg"), caption: []), <figa>,
-figure(image("images/typst-logo.svg"), caption: []), <figb>,
-columns: (1fr, 1fr),
-caption: [(a) Left image and (b) Right image],
-label: <fig:typst>,
-)
+#include "secciones/conclusiones.typ"
 
 #show: appendix
 
 = Appendix A
 
-#lorem(50) (see Eq.~@eq:app-eq1 and Fig.~@fig:logo-app).
 
-$
-  y = x^2
-$ <eq:app-eq1>
+== Solución al problema de los hogares 
+Para encontrar la solución al problema de los hogares se necesita discretizar el espacio de estados $z$. Se tiene que calcular tres conjuntos de nodos #mitex(`\hat{\mathcal{A}}=\left\{a^1, \ldots, a^{n_A}\right\}, \hat{\mathcal{P}}=\left\{e p^1, \ldots, e p^{n_P}\right\}, \hat{\mathcal{E}}=\left\{\eta^1, \ldots, \eta^{n_E}\right\}`)
 
-#figure(
-  image("images/typst-logo.svg", width: 50%),
-  caption : [Typst logo - Credit: \@fenjalien]
-) <fig:logo-app>
+Se usa el método de @rouwenhorst1995asset para obtener una aproximación de la distribución de $eta$, el cual sigue un proceso AR(1), mediante una Cadena de Markov discreta. 
 
+Para cada uno de los valores discretizados de $z_j$ se calcula la decisión óptima de los hogares a partir del problema de optimización (función de política) mediante el algoritmo de iteración de la función de política el cual utiliza una interpolación spline multidimensional @habermann2007multidimensional del nivel de ahorro y earning points de los hogares así como el método de Newton para encontrar las raíces de la condición de primer orden.
+
+
+
+
+== Algoritmo para el equilibrio macroeconómico del cálculo del equilibrio inicial y transición
+
+Las series de tiempo de precios de los factores así como los valores de las variables de política de la transición del estado de equilibrio inicial al siguiente se obtienen mediante el algoritmo iterativo Gauss-Seidel @alma99576423502432.
+
+Se fijan las condiciones iniciales de las variables de stock $K_1$, $B Q_1$, $B_1$, capital, herencias y deuda respectivamente. Se asignan iguales a los valores del equilibrio inicial $K_0$, $B Q_0$ $B_0$. 
+
+El valor de dichos stocks es calibrado a lo largo de la transición mediante un parámetro de velocidad de ajuste *damp factor*. 
+
+El pseudocódigo del programa de la transición es el siguiente:
 #bibliography("refs.bib")
