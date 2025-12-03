@@ -1,17 +1,17 @@
-= Conclusiones
+= Conclusions
 
-El incremento de la progresividad del sistema de pensiones tiene efectos positivos en la eficiencia agregada sólo si está acompañado del incremento de la tasa de formalidad. 
+Increasing the progressivity of the pension system has positive effects on aggregate efficiency only if it is accompanied by an increase in the formal employment rate.
   
-Esto se debe a que se expande el efecto positivo de una pensión progresiva de funcionar como un mecanismo de cobertura frente a shocks alteatorios *vis a vis* en efecto negativo que distorsiona el mercado laboral.
+This is because the positive effect of a progressive pension, functioning as a safety net against unpredictable shocks, is offset by the negative effect that distorts the labor market.
   
-La combinación entre entre sostenibilidad fiscal e incremento de eficiencia es dominado por el nivel de la tasa de formalidad más que por el nivel de progresividad del sistema. 
+The combination of fiscal sustainability and increased efficiency is dominated by the level of the formality rate rather than by the level of progressivity of the system.
 
-Siguientes pasos:
+Next steps:
 
 #list(
-  [*Pensiones*: Explorar esquemas de sistemas de pensiones contributivos y no contributivos.],
-  [*Mercado laboral*: definición de formalidad, ajustar la función de producción. 28% de la población ocupada está fuera de la definición actual.],
-  [*Cuidados*: Incorporación de las mujeres al mercado laboral y financiamiento del sistema de cuidados. *Trabajo de cuidados no remunerados equivale a 24.5\% del PIB (70% realizado por mujeres)* (INEGI).],
-  [*Salud*: Incorporar categorización de status de salud (buena/mala salud). Más del 50% de la población de 50+ tiene diabetes o hipertensión o ambas. 60% de los años perdidos por discapacidad (DALYs) por ENT (2021) (IHME).],
-  [Modelar el impacto de cambios en reglas fiscales. ]
+  [*Pensions*: Explore contributory and non-contributory pension system schemes.],
+  [*Labor market*:Definition of formality, adjusting the production function. 28% of the employed population falls outside the current definition..],
+  [*Care work*: Women's integration into the labor market and financing of the care system. *Unpaid care work is equivalent to 24.5% of GDP (70% performed by women)* (INEGI).],
+  [*Health*: Incorporate health status categorization (good/poor health). More than 50% of the population aged 50+ has diabetes or hypertension, or both. 60% of disability-adjusted life years (DALYs) are due to non-communicable diseases (NCDs) (2021). (IHME).],
+  [Modeling the impact of changes in fiscal rules. ]
 )
