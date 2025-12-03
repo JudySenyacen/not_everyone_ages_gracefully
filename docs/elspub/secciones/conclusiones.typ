@@ -11,7 +11,7 @@ Next steps:
 #list(
   [*Pensions*: Explore contributory and non-contributory pension system schemes.],
   [*Labor market*:Definition of formality, adjusting the production function. 28% of the employed population falls outside the current definition..],
-  [*Care work*: Women's integration into the labor market and financing of the care system. *Unpaid care work is equivalent to 24.5% of GDP (70% performed by women)* (INEGI).],
+  [*Care*: Women's integration into the labor market and financing of the care system. *Unpaid care work is equivalent to 24.5% of GDP (70% performed by women)* (INEGI).],
   [*Health*: Incorporate health status categorization (good/poor health). More than 50% of the population aged 50+ has diabetes or hypertension, or both. 60% of disability-adjusted life years (DALYs) are due to non-communicable diseases (NCDs) (2021). (IHME).],
   [Modeling the impact of changes in fiscal rules. ]
 )
