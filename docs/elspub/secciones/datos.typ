@@ -5,36 +5,37 @@
 #show: booktabs-default-table-style
 
 
-= Parametrización y calibración del modelo
+= Model calibration and parametrization
 
-El modelo contempla dos tipos de parámetros: aquellos que pueden ser directamente observados en los datos y aquellos que puedes ser estimados de forma indirecta. En el primer grupo de parámetros tenemos variables como las probabilidades de supervivencia y las razones de capital. En el segundo grupo de variables se encuentran aquellas que son estimadas mediante algún procedimiento de calibración. El procedimiento de calibración usualmente consiste en ajustar el valor de los parámetros hasta que una o varias salidas del modelo sean lo suficientemente cercanas a su valor registrado en el mundo real.
+The model considers two types of parameters: those that can be directly observed in the data and those that can be estimated indirectly. The first group of parameters includes variables such as survival probabilities and capital ratios. The second group of variables includes those that are estimated through a calibration procedure. The calibration procedure usually consists of adjusting the parameter values ​​until one or more model outputs are sufficiently close to their observed real-world values.
 
-== Parámetros exógenos
+== Exogenous parameters
 
-Cada periodo del modelo corresponde a 5 años en la vida real. Se supone que los hogares inician su vida económica a la edad de 20 años $(j=1)$ y enfrentan una esperanza de vida de 100 años, de manera que el ciclo de vida en el modelo cubre $J J=16$ periodos. Se define la edad obligatoria de retiro a los 65 años de edad, lo que significa en el modelo que la edad de retiro corresponde a $J R=10$, de manera que los hogares gastan los últimos 7 periodos como retirados del mercado de trabajo y reciben una pensión.
+Each period in the model corresponds to 5 years in real life. Households are assumed to begin their economic life at age 20 $(j=1)$ and face a life expectancy of 100 years, so the life cycle in the model covers $J J=16$ periods. The mandatory retirement age is defined as 65, which in the model means that the retirement age corresponds to $J R=10$ periods, so households spend the last 7 periods as retirees and receive a pension.
 
-Dado que estamos considerando que un periodo corresponde a 5 años, algunas tasas anuales deben ser convertidas. Pensando el caso de la tasa de crecimiento de la población, suponiendo una tasa de crecimiento anual de 1 por ciento, la conversión a una tasa compuesta a 5 años sería igual a $n_p=1.01^5-1 ~ 0.05$.
+Since we are considering a period to correspond to 5 years, some annual rates must be converted. Considering the case of the population growth rate, assuming an annual growth rate of 1 percent, the conversion to a 5-year compound annual growth rate would be equal to $n_p=1.01^5-1 ~ 0.05$.
 
-La razón de capital así como la razón de ingreso laboral en el producto es obtenida de PWT 10.01, Penn World Table. El perfil de productividad dada la edad se calculó con la Encuesta Nacional de Ocupación y Empleo (ENOE), para el segundo trimestre de 2021.
+The capital-to-product ratio and the labor-to-income ratio were obtained from PWT 10.01, Penn World Table. The age-specific productivity profile was calculated using the National Survey of Occupation and Employment (ENOE) for the second quarter of 2021.
 
-El gasto público total como fracción del GDP es obtenido del Banco Mundial y corresponde al gasto en consumo final del gobierno#footnote[https://data.worldbank.org/indicator/NE.CON.GOVT.ZS], mientras que la razón deuda pública-GDP fue obtenido de banco de datos de CEPAL.
+Total government spending as a fraction of GDP is obtained from the World Bank and corresponds to government final consumption expenditure#footnote[https://data.worldbank.org/indicator/NE.CON.GOVT.ZS], while the public debt-GDP ratio was obtained from the ECLAC database.
 
-Para la calibración del modelo consideramos 2021 como el año base, de manera que todos los parámetros exógenos corresponden a este año.
+For the calibration of the model we consider 2021 as the base year, so that all exogenous parameters correspond to this year.
 
-== Parámetros calibrados
 
-Los parámetros a calibrar correspondientes a la producción fueron el nivel de tecnología $Omega$ y la tasa de depreciación $delta$. A sugerencia de los autores, se normaliza la tasa de salarios igual a uno, $w=1$. El parámetro $Omega$ fue calibrado numéricamente hasta obtener los valores más cercanos de la tasa de salarios a la unidad. Por su parte, la tasa de depreciación no fue necesario calibrar pues en PWT 10.01, Penn World Table se presenta la tasa para los tres países.
+== Calibrated parameters
 
-El parámetro $nu$ representa el trade off de las preferencias individuales con respecto al consumo y al ocio. Entre más grande el valor de $nu$, es más atractivo para los hogares consumir bienes y servicios que son pagados en el mercado que consumir tiempo de ocio. El parámetro $nu$, por tanto, tiene una influencia importante en la cantidad de horas que un hogar trabaja en el mercado. Se ajusta $nu$ a un objetivo de una razón promedio de tiempo de trabajo en el total de tiempo asignado que representa aproximadamente 33 por ciento. Este valor se calcúla para cada país al asumir una asignación máxima de tiempo de trabajo semanal de 110 horas, asi como también 50 semanas laborales por semana. Entonces se relaciona este promedio anual de horas trabajadas por trabajador, el cual está disponible en la PWT 10.01, Penn World Table para los países de estudio.
+The parameters to be calibrated corresponding to production were the level of technology $Omega$ and the depreciation rate $delta$. At the authors' suggestion, the wage rate is normalized to one, $w=1$. The parameter $Omega$ It was numerically calibrated until the wage rate values ​​closest to one were obtained. Meanwhile, The depreciation rate did not need to be calibrated because the rate for all three countries is presented in PWT 10.01, Penn World Table.
 
-Los siguientes parámetros a calibrar corresponden al proceso de formación y varianza del logaritmo de los ingresos salariales a lo largo del ciclo de vida de los hogares. Estudios empíricos señalan que alrededor de los 25 años la varianza de los ingresos es de 0.3 y que tiende a incrementarse casi linealmente a un valor de 0.9 hasta la edad de 60 años. En modelo presentado aquí, la varianza del logaritmo de las ganancias laborales se determina por dos componentes : mediante procesos exógenos que afectan la productividad laboral de una forma idiosincrática $theta$ y $eta_j$, como también por las decisiones individuales acerca de cuántas horas de trabajo se oferta en el mercado. Contamos con información acerca de la estructura del proceso de productividad laboral y cómo este podría influir en la varianza del logaritmo de las ganancias laborales. El logaritmo de las ganancias laborales de un individuo se define como
+The parameter $nu$ It represents the trade-off of individual preferences regarding consumption and leisure. The larger the value of $nu$, It is more attractive for households to consume goods and services that are paid for in the market than to consume leisure time. The parameter $nu$, Therefore, it has a significant influence on the number of hours a household works in the market. It adjusts $nu$ to a target of an average ratio of work time to total allocated time that represents approximately 33 percent. This value is calculated for each country assuming a maximum weekly work time allocation of 110 hours, as well as 50 work weeks per week. This annual average of hours worked per employee, which is available in PWT 10.01, Penn World Table for the countries under study, is then compared.
 
-==  Sistema de impuestos y del sistema de pensiones
-Resta parametrizar el esquema del sistema de impuestos y del sistema de pensiones. El gobierno tiene 4 esquemas tributarios a definir con el objetivo de balancear su presupuesto:
-1. Definir exógenamente el valor de $tau_t^w$ y $tau_t^r$, calcular el valor de $tau_t^c$.
-2. Definir exógenamente el valor de $tau_t^c$, calcular el valor de $tau_t^w$ y $tau_t^r$
-3. Definir exógenamente el valor de $tau_t^c$ y $tau_t^r$, calcular el valor de $tau_t^w$.
-4. Definir exógenamente el valor de $tau_t^c$ y $tau_t^w$, calcular el valor de $tau_t^r$.
+The following parameters to be calibrated correspond to the formation process and variance of the logarithm of wage income over the household life cycle. Empirical studies indicate that around age 25, the variance of income is 0.3 and tends to increase almost linearly to a value of 0.9 by age 60. In the model presented here, the variance of the logarithm of labor earnings is determined by two components: through exogenous processes that affect labor productivity in an idiosyncratic way $theta$ and $eta_j$, as well as by individual decisions about how many hours of work are offered in the market. We have information about the structure of the labor productivity process and how this might influence the variance of the logarithm of labor earnings. The logarithm of an individual's labor earnings is defined as
+
+==  Tax system and pension system
+The tax and pension systems still need to be defined. The government has four tax schemes to define in order to balance its budget:
+1. Define exogenously the value of $tau_t^w$ and $tau_t^r$, calculate the value of $tau_t^c$.
+2. Define exogenously the value of $tau_t^c$, calculate the value of $tau_t^w$ and $tau_t^r$
+3. Define exogenously the value of $tau_t^c$ and $tau_t^r$, calculate the value of $tau_t^w$.
+4. Define exogenously the value of $tau_t^c$ and $tau_t^w$, calculate the value of $tau_t^r$.
 
 Para las ejecuciones del modelo se definió el esquema 4 , es decir, de forma exógena asignamos un valor de la tasa de impuesto al consumo y al ingreso laboral, y el modelo calcula la tasa de impuesto del capital. Se utilizaron los cálculos de las tasas efectivas de los impuestos al consumo y al ingreso realizados por el CIEP.
 
