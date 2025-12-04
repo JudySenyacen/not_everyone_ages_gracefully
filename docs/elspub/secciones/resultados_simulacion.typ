@@ -2,18 +2,18 @@
 #import "@preview/booktabs:0.0.4": *
 #import "@preview/mitex:0.2.5": *
 
-= Incremento de la Progresividad del Sistema de Pensiones 
-En esta sección se detallarán los efectos macroeconómicos, de bienestar y de eficiencia, así como sostenibilidad fiscal del incremento de la progresividad del sistema de pensiones. 
+= Increased Progressivity of the Pension System
+This section will detail the macroeconomic, welfare and efficiency effects, as well as the fiscal sustainability, of increasing the progressivity of the pension system.
 
-Partimos del equilibrio inicial obtenido en la sección previa el cual se definió como $t=2021$. Cambiamos progresivamente el valor de $lambda$ a partir de $t=2022$ y calculamos la trayectoria de transición hacía el nuevo estado de equilibrio $t = infinity$.
+We start from the initial equilibrium obtained in the previous section, which was defined as $t=2021$. We progressively change the value of $lambda$ starting from $t=2022$ and calculate the transition path towards the new equilibrium state $t = infinity$.
 
-Nos interesa conocer los efectos en los agregados macroeconómicos, así como en el bienestar y eficiencia, entre ambos estados de equilibrio. 
+We are interested in understanding the effects on macroeconomic aggregates, as well as on welfare and efficiency, between both equilibrium states.
 
-== Cálculos de efectos en el bienestar y eficiencia 
+== Calculations of effects on welfare and efficiency
 
-Con el objetivo de contabilizar cambios en bienestar de los agentes, utilizaremos la denominada *Equivalencia #footnote[Variación de Compensación] Hicksiana*.
+In order to account for changes in the well-being of the agents, we will use the so-called *Hicksian Equivalence #footnote[Compensation Variation]*.
 
-Dado que la función de utilidad de los hogares es homogénea @fehr2013should, tenemos que se mantiene la siguiente igualdad
+Given that the household utility function is homogeneous @fehr2013should, we have that the following equality holds.
 
 #mitex(
   `
@@ -23,9 +23,9 @@ u\left[(1+\phi) c_j,(1+\phi) \ell_j\right]=(1+\phi) u\left[c_j, \ell_j\right]
   `
 )
 
-Si el consumo y el ocio simultaneamente se incrementaran por un factor $1 + phi.alt$ en cualquier edad, la utilidad a lo largo de la vida se incrementaría en el mismo factor. Si asumimos que un individuo en el estado $z_j$ tiene una utilidad $V_(2021)(z_j)$ en el equilibrio inicial y $V_(t)(z_j)$ en el segundo equilibrio de largo plazo después de la política, $t > 2021$.
+If consumption and leisure were simultaneously increased by a factor of $1 + phi.alt$ at any age, lifetime utility would increase by the same factor. If we assume that an individual in state $z_j$ has utility $V_(2021)(z_j)$ in the initial equilibrium and $V_(t)(z_j)$ in the second long-run equilibrium after the policy, $t > 2021$.
 
-La variación de compensación entre el escenario de reforma y el escenario baseline para el individuo con estado $z_j$ sería 
+The compensation variation between the reform scenario and the baseline scenario for the individual with status $z_j$ would be
 
 #mitex(
   `
@@ -35,30 +35,28 @@ La variación de compensación entre el escenario de reforma y el escenario base
   `
 )
 
-donde $phi.alt$ indica el porcentaje de cambio tanto en consumo como en ocio que el individuo en estado $z_j$ requeriría en el estado inicial para estar al menos tan bien como después de la reforma de la política. Si $phi.alt > 0$, la reforma mejora el bienestar de este individuo y viceversa. 
+where $phi.alt$ indicates the percentage change in both consumption and leisure that the individual in state $z_j$ would require in the initial state to be at least as well off as after the policy reform. If $phi.alt > 0$, the reform improves the well-being of this individual, and vice versa.
 
-La línea sólida de la siguiente figura muestra una posible consecuencia específicas por cohorte en el bienestar que pueden experimentar los individuos como resultado de una política#footnote[Se considera un agente representativo para cada cohorte].  La política redistribuye la riqueza de los cohortes actuales a los cohortes futuros#footnote[El eje $x$ de la gráfica indica el año de nacimiento de los cohortes. Dado que los hogares comienzan su vida laboral a los 20 años, siguiendo el ejemplo de @fehr2013should, el último cohorte que está en el mercado de trabajo nació en 1998, pues el primer estado de equilibrio corresponde a 2008. Cuando se habla de generaciones futuras, se refiere a las generaciones nacidad después de 2009]. 
-
-
-Para aislar los efectos obtenido unicamente por efectos de eficiencia de la reforma, @alma99576423502432 fueron pioneros en proponer introducir un agente nuevo al modelo : Lump-Sum Redistribution Authority (LSRA). Dicho agente realiza una tarea hipotética en una simulación independiente en la que redistribuye-compensa los beneficios o pérdidas generados por la política. En primer lugar, este agente realiza transferencias o impone impuestos a todas las generaciones que son económicamente activas en el año inmediatamente precedente a año de aplicación de la política con el objetivo de hacerlos que estén tan bien como en el estado de equilibrio inicial después de la política. De manera que su varición de compensación es igual a 0. Posteriormente, como consecuencia de esta operación redistributiva, el LSRA pudo haber contraido deuda o acumular activos. El LSRA redistribuye esta deuda o activos a las generaciones futuras de tal manera que todos obtengan a la misma variación compensatoria. Esta variación se puede interpretar como una medida de eficiciencia@fehr2013should. Si esta variación es positiva, la reforma se considera que mejora en sentido de Pareto tras la compensación. 
-
-== Efectos del incremento de la progresividad
-
-Nos interesa calcular los efectos de incrementar la progresividad  del sistema de pensiones calcular la trayectoria hacia el segundo estado de equilibrio para los valores de $lambda in {0.1, 0.2, dots , 1.0}$. Esta intervención tiene dos efectos latentes en el sistema. El primero : Bajo el sistema de earning points una parte de las contribuciones a pensiones de las trabajadoras se reconocen como un *ahorro implícito*. Bajo el sistema en que la pensión es independiente del historial de ingresos $lambda = 1$, la contribución se considera un *impuesto implícito*. De manera que la transición a un sistema de pensiones con pensión *plana* incrementa las distorsiones de la oferta laboral y disminuye el bienestar. El segundo : el sistema de pensiones independiente del historial de ingresos $lambda = 1$, también funciona como un seguro contra riesgos del mercado laboral, lo que tiende a mejorar el bienestar. 
+The solid line in the figure below shows a possible cohort-specific consequence on well-being that individuals may experience as a result of a policy#footnote[A representative agent is considered for each cohort.]. The policy redistributes wealth from current cohorts to future cohorts#footnote[The axis $x$ of the graph indicates the birth year of the cohorts. Since households begin their working lives at age 20, following the example of @fehr2013should, the last cohort to enter the labor market was born in 1998, as the first equilibrium state corresponds to 2008. When referring to future generations, this means generations born after 2009.]
 
 
-=== Efectos macroeconómicos
+To isolate the effects solely attributable to the efficiency of the reform, @alma99576423502432 pioneered the introduction of a new agent into the model: the Lump-Sum Redistribution Authority (LSRA). This agent performs a hypothetical task in an independent simulation, redistributing and compensating for the benefits or losses generated by the policy. First, this agent makes transfers or imposes taxes on all economically active generations in the year immediately preceding the policy's implementation, aiming to ensure they are as well off as they were in the initial equilibrium state after the policy. Therefore, its compensating variation is equal to 0. Subsequently, as a consequence of this redistributive operation, the LSRA may have incurred debt or accumulated assets. The LSRA redistributes this debt or assets to future generations in such a way that everyone receives the same compensating variation. This variation can be interpreted as a measure of efficiency. @fehr2013should If this variation is positive, the reform is considered to be Pareto improved after compensation.
 
-=== Bienestar y Eficiencia
+== Effects of increased progressivity
 
-Usamos la variación Hicksiana como medida de los efectos en bienestar para diferentes cohortes. Nos gustaría responder:
+We are interested in calculating the effects of increasing the progressivity of the pension system and calculating the path to the second equilibrium state for the values ​​of $lambda in {0.1, 0.2, dots , 1.0}$. This intervention has two latent effects on the system. The first: Under the earning points system, a portion of workers' pension contributions is recognized as implicit savings. Under the system where the pension is independent of income history ($lambda = 1$), the contribution is considered an implicit tax. Thus, the transition to a pension system with a flat pension increases distortions in the labor supply and decreases welfare. The second: The pension system independent of income history ($lambda = 1$) also functions as insurance against labor market risks, which tends to improve welfare.
 
-- ¿Se benefician-afectan los retirados? ¿Cómo son afectados por los incrementos en los impuestos al consumo? ¿formales o informales se benefician-perjudican más?
-- ¿Se benefician-afectan las generaciones actuales en edad de trabajar?
+=== Macroeconomic effects
+
+=== Well-being and Efficiency
+
+We use Hicksian variation as a measure of the effects on well-being for different cohorts. We would like to answer:
+
+- Are retirees affected or benefited? How are they affected by increases in consumption taxes? Are those in the formal or informal sectors more affected or harmed?
+- Are current working-age generations affected or benefited?
 - Here the intra-generational redistribution from rich towards poor households induced by the progressive pension formula becomes most obvious.
-- ¿Se benefician-afectan las nuevas generaciones?
-- ¿Qué pasa con la medida global del LSRA? Es decir, los efectos en bienestar después de pagos de compensación.
-
+- Are the new generations affected or benefited?
+- What about the overall measure of the LSRA? That is, the welfare effects after compensation payments.
 
 The evolution of welfare after compensation is depicted in the right part of Table 5. We find that the
 reform induces losses for any future generation of 0.46% of initial resources.
@@ -129,8 +127,8 @@ table(
   align: (center, center, center),
   toprule(), // added by this package
   table.header(
-    [*Año de Nacimiento*],
-    [*Años en 2021*],
+    [*Birth Year*],
+    [*Years in 2021*],
     table.cell(colspan: 2)[*Sin LSRA*],
     [*Con LSRA*],
 
@@ -144,7 +142,7 @@ table(
   ),
 
   midrule(), // added by this package
-  [*Retiradas*],[],[*Formal*],[*Informal*],[],
+  [*Retired*],[],[*Formal*],[*Informal*],[],
   
   [1930], [91], [1.19], [0.53], [0.0],
   [1956], [65], [3.93], [2.47], [0.0],
@@ -152,7 +150,7 @@ table(
   [],[],[],[],[],
   cmidrule(start: 0, end: -1), // added by this package
 
-  [*Trabajadoras*],[],[*Formal*],[*Informal*],[],
+  [*Workers*],[],[*Formal*],[*Informal*],[],
   [1960], [61], [-7.87], [2.01], [0.0],
   [1970], [51], [-4.43], [0.80], [0.0],
   [1980], [41], [-0.65], [0.52], [0.0],
@@ -162,7 +160,7 @@ table(
   [],[],[],[],[],
   cmidrule(start: 0, end: -1), // added by this package
 
-  [*Futuras Generaciones*],[],[],[],[],
+  [*Future Generations*],[],[],[],[],
 
   [2012], [19], [], [], [-0.13],
   [2020], [1], [], [], [-0.13],
@@ -195,31 +193,31 @@ table(
   ),
 
   midrule(), // added by this package
-  table.cell(colspan: 10)[*Agregados Macroeconómicos*],
-  [PIB],[-0.56], [-1.12], [-1.69], [-2.26], [-2.82], [-3.39], [-3.96], [-4.51], [-5.03],      
-  [Trabajo],[-0.11], [-0.24], [-0.36], [-0.48], [-0.6], [-0.73], [-0.85], [-0.98], [-1.1],
+  table.cell(colspan: 10)[*Macroeconomic Aggregates*],
+  [GDP],[-0.56], [-1.12], [-1.69], [-2.26], [-2.82], [-3.39], [-3.96], [-4.51], [-5.03],      
+  [Work],[-0.11], [-0.24], [-0.36], [-0.48], [-0.6], [-0.73], [-0.85], [-0.98], [-1.1],
   [Capital],[-0.82], [-1.66], [-2.5], [-3.33], [-4.16], [-4.99], [-5.82], [-6.63], [-7.37],
   [],[],[],[],[],[],[],[],[],[],
   
   cmidrule(start: 0, end: -1), // added by this package
 
-  table.cell(colspan: 10)[*Precios*],
-  [Salario],[-0.44], [-0.88], [-1.33], [-1.78], [-2.23], [-2.68], [-3.13], [-3.57], [-3.97],
-  [Tasa de interés], [0.34], [0.69], [1.05], [1.41], [1.77], [2.14], [2.5], [2.86], [3.2],
-  [Impuesto al capital],[1.29], [2.61], [3.95], [5.3], [6.67], [8.06], [9.44], [10.83], [12.12],
+  table.cell(colspan: 10)[*Prices*],
+  [Wage],[-0.44], [-0.88], [-1.33], [-1.78], [-2.23], [-2.68], [-3.13], [-3.57], [-3.97],
+  [Interest rate], [0.34], [0.69], [1.05], [1.41], [1.77], [2.14], [2.5], [2.86], [3.2],
+  [Capital tax],[1.29], [2.61], [3.95], [5.3], [6.67], [8.06], [9.44], [10.83], [12.12],
   [],[],[],[],[],[],[],[],[],[],
 
   cmidrule(start: 0, end: -1), // added by this package
 
   table.cell(colspan: 10)[*Sistema de Pensiones*],
-  [Gasto en Pensiones#footnote[en % de PIB]],[2.48], [2.52], [2.56], [2.6], [2.64], [2.68], [2.72], [2.76], [2.8],
-  [Tasa de Contribución],[1.57], [3.16], [4.76], [6.37], [8.0], [9.64], [11.3], [12.97], [14.66],
+  [Pensions expenditure#footnote[en % de PIB]],[2.48], [2.52], [2.56], [2.6], [2.64], [2.68], [2.72], [2.76], [2.8],
+  [Contribution Rate],[1.57], [3.16], [4.76], [6.37], [8.0], [9.64], [11.3], [12.97], [14.66],
   [],[],[],[],[],[],[],[],[],[],
 
   cmidrule(start: 0, end: -1), // added by this package
 
   table.cell(colspan: 10)[*Eficiencia Agregada*],
-  [Con LSRA],[-0.01], [-0.02], [-0.03], [-0.041], [-0.053], [-0.065], [-0.079], [-0.094], [-0.111],
+  [With LSRA],[-0.01], [-0.02], [-0.03], [-0.041], [-0.053], [-0.065], [-0.079], [-0.094], [-0.111],
   [],[],[],[],[],[],[],[],[],[],
 
   bottomrule() // added by this package
@@ -252,30 +250,30 @@ table(
 
   midrule(), // added by this package
   table.cell(colspan: 10)[*Agregados Macroeconómicos*],
-  [PIB],[-0.25], [0.84], [0.38], [-0.0], [-0.22], [-0.34], [-0.41], [-0.44], [-0.47],        
-  [Trabajo],[-0.65], [4.02], [3.69], [3.71], [3.71], [3.72], [3.72], [3.72], [3.72],    
+  [GDP],[-0.25], [0.84], [0.38], [-0.0], [-0.22], [-0.34], [-0.41], [-0.44], [-0.47],        
+  [Work],[-0.65], [4.02], [3.69], [3.71], [3.71], [3.72], [3.72], [3.72], [3.72],    
   [Capital],[-0.0], [-1.06], [-1.61], [-2.22], [-2.56], [-2.75], [-2.86], [-2.92], [-2.96],
   [],[],[],[],[],[],[],[],[],[],
   
   cmidrule(start: 0, end: -1), // added by this package
 
   table.cell(colspan: 10)[*Precios*],
-  [Salario],[0.4], [-3.06], [-3.2], [-3.58], [-3.79], [-3.91], [-3.98], [-4.02], [-4.04],
-  [Tasa de interés],[-0.31], [2.44], [2.56], [2.87], [3.05], [3.15], [3.2], [3.23], [3.25],
-  [Impuesto al capital],[0.11], [-0.59], [0.3], [1.23], [1.75], [2.05], [2.22], [2.31], [2.37],
+  [Wage],[0.4], [-3.06], [-3.2], [-3.58], [-3.79], [-3.91], [-3.98], [-4.02], [-4.04],
+  [Interest rate],[-0.31], [2.44], [2.56], [2.87], [3.05], [3.15], [3.2], [3.23], [3.25],
+  [Capital tax],[0.11], [-0.59], [0.3], [1.23], [1.75], [2.05], [2.22], [2.31], [2.37],
   [],[],[],[],[],[],[],[],[],[],
 
   cmidrule(start: 0, end: -1), // added by this package
 
   table.cell(colspan: 10)[*Sistema de Pensiones*],
-  [Gasto en Pensiones#footnote[en % de PIB]],[2.42], [2.71], [2.97], [2.97], [2.97], [2.97], [2.97], [2.97], [2.97],
-  [Tasa de Contribución],[-4.16], [-2.05], [7.6], [7.6], [7.6], [7.6], [7.6], [7.6], [7.6],
+  [Pensions expenditure#footnote[en % de PIB]],[2.42], [2.71], [2.97], [2.97], [2.97], [2.97], [2.97], [2.97], [2.97],
+  [Contribution Rate],[-4.16], [-2.05], [7.6], [7.6], [7.6], [7.6], [7.6], [7.6], [7.6],
   [],[],[],[],[],[],[],[],[],[],
 
   cmidrule(start: 0, end: -1), // added by this package
 
   table.cell(colspan: 10)[*Eficiencia Agregada*],
-  [Con LSRA],[], [], [], [], [], [], [], [], [1.05],
+  [With LSRA],[], [], [], [], [], [], [], [], [1.05],
   [],[],[],[],[],[],[],[],[],[],
 
   bottomrule() // added by this package
