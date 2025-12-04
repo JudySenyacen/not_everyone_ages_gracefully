@@ -1,44 +1,38 @@
 #import "@preview/mitex:0.2.5": *
 
-== Introducción
+== Introduction
 
-Se desarró un Modelo de Generaciones Traslapadas de Agentes Heterogéneos Dinámico y Estocástico (DSOLG) para estimar cambios en la polı́tica fiscal.
-
-
-Al contrario de los modelos de horizonte infinito de agente representativo,
-este enfoque permite incorporar @nishiyama2014analyzing : 
-
-- Propiedades del ciclo de vida que son importantes para determinar las elecciones de ahorro y oferta de trabajo.
-- Heterogeneidad intra-generacional en los hogares, que es necesaria para analizar el impacto de cambios de polı́tica en la distribución de ingreso y la riqueza.
-- Heterogeneidad inter -generacional en los hogares para analizar el timing de los impuestos y sus efectos sobre la distribución intergeneracional.
-
-Una generación de modelos OLG son los que incorporan incertidumbre en
-forma de shocks idiosincráticos a nivel de los hogares (ingresos laborales,
-riesgo de longevidad, etc) y determinismo en las variables agregadas @nishiyama2014analyzing
-
-Los shocks idiosincráticos afectan de forma diferenciada a los agentes, de
-manera que responden de forma heterogénea dentro de un cohorte @fehr2018introduction #footnote[Al contrario del enfoque de agente representativo donde implı́citamente se define
-que los individuos pueden cubrirse contra cualquier forma shock idiosincrático]
-
-Estos modelos son utilizados para calcular efectos de transición de cambios
-de polı́tica de un estado estacionario al siguiente.
-
-Con la dinámica de la transición se utiliza también para analizar los
-impactos en el bienestar de reformas de la polı́tica fiscal que pueden
-beneficiar a futuras generaciones a costa de las generaciones de la transición.
-
-El modelo aquı́ presentado pertenece a esta generación de modelos OLG. Es un modelo de equilibrio general dinámico y estocástico que incorpora riesgos idiosincráticos en la productividad laboral.
-
-Las cantidades agregadas de la economı́a crecen en una trayectoria de
-crecimiento balanceado dada por la tasa de crecimiento de la
-población $n_p$.
+A Dynamic Stochastic Heterogeneous Agent Overlapping Generations (DSOLG) Model was developed to estimate changes in fiscal policy.
 
 
-== Demografía
-En cada periodo $t$, la economía está poblada por $J$ generaciones traslapadas indizadas por $j=1, dots, J$. 
+Unlike infinite-horizon representative-agent models,
+this approach allows for the incorporation of @nishiyama2014analyzing : 
 
+- Life cycle characteristics that are important for determining savings and labor supply choices.
+- Intra-generational heterogeneity in households, which is necessary to analyze the impact of policy changes on income and wealth distribution.
+- Inter-generational heterogeneity in households to analyze the timing of taxes and their effects on intergenerational distribution.
 
-El modelo integra el llamado *margen intensivo de la informalidad*, específicamente a los trabajadores que se emplean en unidades económicas formales pero que no cuentan con una relación patronal ni beneficios laborales definidos en la Ley, ni seguridad social#footnote[El *margen intensivo de la informalidad* es aún mas grande, pues contempla a las trabajadoras que se emplean en el *sector informal*. El INEGI define al sector informal como las actividades económicas que operan con recursos del hogar, sin constituirse formalmente como empresas, donde no se logra distinguir entre la unidad económica y el hogar. Es decir, hay dos formas de conceptualizar la informalidad : de acuerdo al sector económico donde se emplea la trabajadora y por la condición laboral]. El modelo incorpora trabajadores *informales* que laboran en unicades económicas formales y trabajadores *formales*#footnote[El modelo podría considerar a los trabajadores informales que se emplean en el sector informal al considerar unidades económicas que enfrentan una función de producción que usa unicamente el factor trabajo]. Cuando los individuos entran al mercado laboral, son asignados como trabajor informal o formal de acuerdo a una distribución de probabilidad $omega_s$#footnote[Esta distribución es calculada empiricamente mediante la matriz de hussmans del INEGI] . La variable indicadora  $m_s in [0,1]$ denota el estado laboral del trabajador, donde $m_s=0$ corresponde a trabajadoras formales y $m_s = 1$ a trabajadoras informales. Las probabilidades de transición entre ambos estados es fija y no depende de la edad:
+One generation of OLG models are those that incorporate uncertainty in
+form of idiosyncratic shocks at the household level (labor income,
+longevity risk, etc.) and determinism in aggregate variables @nishiyama2014analyzing
+
+Idiosyncratic shocks affect agents in different ways,
+respond heterogeneously within a cohort @fehr2018introduction #footnote[In contrast to the representative agent approach where it is implicitly defined
+that individuals can protect themselves against any form of idiosyncratic shock]
+
+These models are used to calculate transition effects of policy changes from one steady state to the next.
+
+The dynamics of the transition are also used to analyze the
+welfare impacts of fiscal policy reforms that may
+benefit future generations at the expense of the transition generations.
+
+The model presented here belongs to this generation of OLG models. It is a dynamic and stochastic general equilibrium model that incorporates idiosyncratic risks in labor productivity.
+The aggregate quantities of the economy grow on a balanced growth path given by the population growth rate. $n_p$.
+
+== Demography
+In each period $t$, The economy is populated by $J$ overlapping generations indexed by $j=1, dots, J$. 
+
+The model integrates the so-called *intensive margin of informality*, specifically workers who are employed in formal economic units but who do not have an employer relationship, labor benefits defined by law, or social security.#footnote[The *intensive margin of informality* is even larger, as it includes workers employed in the *informal sector*. INEGI defines the informal sector as economic activities that operate with household resources, without being formally constituted as businesses, where it is impossible to distinguish between the economic unit and the household. In other words, there are two ways to conceptualize informality: according to the economic sector where the worker is employed and according to their employment status. The model incorporates *informal* workers employed in formal economic units and *formal* workers. [The model could consider informal workers employed in the informal sector by considering economic units that face a production function that uses only the labor factor.] When individuals enter the labor market, they are assigned as informal or formal workers according to a probability distribution $omega_s$#footnote[This distribution is calculated empirically using the INEGI Hussmans matrix] . The indicator variable $m_s in [0,1]$ denotes the worker's employment status, where $m_s=0$ This applies to formal workers and $m_s = 1$ to informal workers. The probability of transition between both states is fixed and does not depend on age:
 
 #mitext(`
 \begin{equation}
@@ -46,93 +40,93 @@ El modelo integra el llamado *margen intensivo de la informalidad*, específicam
 \end{equation}
  `)
 
-Se asume que la supervivencia de un periodo al siguiente es estocástica y que $psi_j$ es la probabilidad que un agente sobreviva de la edad $j-1$ a la edad $j$, condicional a que vive en la edad $j-1$#footnote[Se asume que los trabajadores formales e informales tienen la misma tasa de supervivencia].
+It is assumed that survival from one period to the next is stochastic and that $psi_j$ is the probability that an agent will survive to old age $j-1$ at the age $j$, conditional on living at the age $j-1$#footnote[It is assumed that formal and informal workers have the same survival rate].
 
           #mitext(`
- La probabilidad incondicional de sobrevivir a la edad $j$ está dada por $\Pi_{i=1}^j \psi_i$ con $\psi_1=1$. Dado que el número de miembros de cada cohorte declina con respecto a la edad, el tamaño del cohorte correspondiente a la edad $j$ en el periodo $t$ es
+ The unconditional probability of surviving to old age $j$ is given by $\Pi_{i=1}^j \psi_i$ with $\psi_1=1$. Since the number of members in each cohort declines with age, the cohort size corresponding to age $j$ in the period $t$ is
 
 $$
 N_{j, s, t}=\psi_{j, t} N_{j-1, s, t-1} \quad \text { con } \quad N_{1, s, t}=\left(1+n_{p, t}\right) N_{1, s, t-1}
 $$
 
 
-En consecuencia, los pesos de los cohortes (las razones relativas de población) se definen como $m_{1, s, t}=1$ y $m_{j, s, t}= \frac{\psi_{j, t}}{1+n_{p, t}} m_{j-1, s, t-1}$.
+Consequently, cohort weights (relative population ratios) are defined as $m_{1, s, t}=1$ y $m_{j, s, t}= \frac{\psi_{j, t}}{1+n_{p, t}} m_{j-1, s, t-1}$.
 
-Se asume que la población crece a una tasa constante $n_{p,t} = n_p$ y es la misma para ambos grupos de la población.
+It is assumed that the population grows at a constant rate. $n_{p,t} = n_p$ and it is the same for both population groups.
 
-La trayectoria de crecimiento balanceado, es decir donde todas las variables agregadas crecen a una misma tasa, se fija a la tasa de crecimiento del cohorte más joven. Se normalizan dichas variables agregadas al tiempo $t$ por el tamaño del cohorte más joven que está viviendo en ese periodo.
+The balanced growth trajectory, where all aggregate variables grow at the same rate, is set to the growth rate of the youngest cohort. These aggregate variables are then normalized over time $t$ due to the size of the younger cohort living during that period.
           `)
 
-Todos los agentes se retiran a la edad $j_r$. Los agentes que laboraron en el sector formal  comienzan a recibir una pensión la cual es financiada por el impuesto a nómina. Durante la edad laboral de los trabajadores formales acumulan *earning points* $e p_j$ que definen sus pagos de pensión cuando se retiran.
+All officers retire at age $j_r$. Agents who worked in the formal sector begin receiving a pension, which is funded by payroll tax. During their working years, formal sector employees accumulate earning points $e p_j$ that define their pension payments when they retire.
 
-Por simplicidad, omitiremos el índice $s$ en la medida de lo posible.
+For simplicity, we will omit the index $s$ as much as possible.
  
-== Decisiones de los hogares
+== Household decisions
 
-=== Preferencias de los hogares
+=== Phousehold references
 #mitext(`
-Los individuos tienen preferencias sobre consumo $c_{j, t}$ y ocio $l_{j, t}$, además que pagan impuestos sobre el consumo, ingreso así como también un impuesto sobre nómina al sistema de pensiones. Se asume que la asignación de tiempo es igual a 1.
+Individuals have consumption preferences $c_{j, t}$ and leisure $l_{j, t}$, They also pay consumption and income taxes, as well as a payroll tax to the pension system. It is assumed that the time allocation is equal to 1.
 
-Con $l_{j, t}$ denotando la cantidad de trabajo en horas ofrecido a mercado en el periodo $t$, tenemos $\mathrm{l}_{j, t}+ l_{j, t}=1$. La función de utilidad de los hogares se define como
+With $l_{j, t}$ denoting the amount of labor hours offered to the market in the period $t$, we have $\mathrm{l}_{j, t}+ l_{j, t}=1$. The utility function of households is defined as
 
 $$
 E\left[\sum_{j=1}^J \beta^{j-1}\left(\Pi_{i=2}^j \psi_{i, s} m_{i-1,s}\right) u\left(c_{j, s}, 1-l_{j, s}\right)\right]
 $$
 
-donde $\beta$ denota el factor de descuento de tiempo. Como puede verse, en la utilidad marginal esperada del consumo futuro es también condicional al actual estado laboral $m$.
+where $\beta$ denotes the time discount factor. As can be seen, the expected marginal utility of future consumption is also conditional on the current employment status $m$.
 
-La función de utilidad de los hogares está dada por
+The household utility function is given by
 
 $$
 u\left(c_{j, t}, 1-l_{j, t}\right)=\frac{\left[\left(c_{j, t}\right)^\nu\left(1-l_{j, t}\right)^{(1-\nu)}\right]^{\left(1-\frac{1}{\gamma}\right)}}{1-\frac{1}{\gamma}}
 $$
 
 
-La utilidad de consumo y ocio toma la forma de una función Cobb-Douglas con un parámetro $\nu$ de preferencia entre ocio y consumo. La elasticidad de sustitución intertemporal es constante e igual a $\gamma$, donde $\frac{1}{\gamma}$ es la aversión al riesgo del hogar.
+The consumption and leisure utility takes the form of a Cobb-Douglas function with one parameter $\nu$ preference between leisure and consumption. The intertemporal elasticity of substitution is constant and equal to $\gamma$, where $\frac{1}{\gamma}$ It is the household's risk aversion.
 `)
 
-=== Riesgo de supervivencia y herencias
+=== Risk of survival and inheritance
 #mitext(`
-Dado que no hay mercados de rentas vitalicias (annuity markets), el retorno a activos individuales corresponde a la tasa de interés neta. 
+Since there are no annuity markets, the return on individual assets corresponds to the net interest rate.
 
-En un marco donde no hay riesgo de longevidad los agentes conocen con certeza en qué momento su vida terminará. En consecuencia, son capaces de planear perfectamente en qué punto del tiempo quieren consumir todos sus ahorros. 
+In a scenario where there is no risk of longevity, individuals know with certainty when their lives will end. Consequently, they are able to perfectly plan when they want to spend all their savings.
 
-Aquí existe incertidumbre de supervivencia, así que los agentes pueden morir antes que la máxima duración de vida $J$ y, como consecuencia, dejar una herencia. Se define $b_{j, t}$ como la herencia que un agente en la edad $j$ recive en el periodo $t$.
+There is uncertainty about survival here, so agents may die before reaching their maximum lifespan $J$ and, as a consequence, leave an inheritance. It is defined $b_{j, t}$ like the inheritance that an agent at age $j$ receives in the period $t$.
 
-La cantidad de herencia para cada cohorte puede ser calculado mediante la expresión:
+The amount of inheritance for each cohort can be calculated using the expression:
 
 $$
 b_{j, t}=\Gamma_{j, t} B Q_t
 $$
 
-donde $B Q_t$ define la herencia agregada en el periodo $t$, o simplemente la fracción del total de activos que pueden ser atribuidos a quienes fallecieron al final del período anterior (incluidos los intereses).
+where $B Q_t$ defines the aggregate inheritance in the period $t$, or simply the fraction of total assets that can be attributed to those who died at the end of the previous period (including interest).
 
 $$
 B Q_t=r_t^n \sum_{j=2}^J a_{j, t} \frac{m_{j, t}}{\psi_{j, t}}\left(1-\psi_{j, t}\right)
 $$
 
-donde $r_t^n$ es la tasa de interés neta en $t$ y $a_{j,s,t}$ son los activos del cohorte $j$, del grupo $s$, en $t$.
+where $r_t^n$ is the net interest rate in $t$ and $a_{j,s,t}$ are the cohort's assets $j$, of the group $s$, in $t$.
 `)
 
 
-=== Riesgo en la productividad laboral
+=== Risk to labor productivity
 #mitext(`
-Los individuos difieren respecto a su productividad laboral $h_{j, t}$, la cual depende de un perfil (determinístico) de ingresos por edad $e_{j,s}$ que depende del tipo de trabajo, un efecto de productividad fijo $\theta$ que es definido al comienzo del ciclo de vida y que, de igual forma, depende del tipo de trabajo (formal e informal) al que son asignados\footnote{Representa un shock permanente}. Además, se agrega un shock idiosincrático mediante un componente autoregresivo $\eta_{j, t}$ que evoluciona en el tiempo y que tiene una estructura autoregresiva de orden 1, de manera que
+Individuals differ with respect to their work productivity $h_{j, t}$, which depends on a (deterministic) income profile by age $e_{j,s}$ which depends on the type of work, a fixed productivity effect $\theta$ which is defined at the beginning of the life cycle and which, likewise, depends on the type of work (formal and informal) to which they are assigned\footnote{It represents a permanent shock}. In addition, an idiosyncratic shock is added through an autoregressive component $\eta_{j, t}$ that evolves over time and has an autoregressive structure of order 1, so that
 
 $$
 \eta_j=\rho \eta_{j-1}+\epsilon_j \quad \text { con } \quad \epsilon_j \sim N\left(0, \sigma_\epsilon^2\right) \quad \text { y } \quad \eta_1=0
 $$
 
 
-Dada esta estructura, la productividad laboral del hogar es
+Given this structure, household labor productivity is
 
 $$
 h_j= \begin{cases}e_j \exp \left[\eta_j\right] & \text { si } j<j_r \\ 0 & \text { si } j \geq j_r\end{cases}
 $$
 `)
 
-=== Problema de Decisión de los Consumidores
-El estado de los individuos se carateriza por el vector de estado#footnote[Se asume que los shocks de productividad son independientes entre individuos e identicamente distribuidos entre individuos de un tipo de trabajo en específico.]
+=== Consumer Decision Problem
+The state of individuals is characterized by the state vector#footnote[It is assumed that productivity shocks are independent between individuals and identically distributed among individuals of a specific type of work.]
 #mitext(`
 \begin{equation}
 z_j = (J, a, ep, s, \eta)
@@ -140,7 +134,7 @@ z_j = (J, a, ep, s, \eta)
 `)
 
 
-Los hogares maximizan la función de utilidad sujeta a la restricción presupuestaria intertemporal
+Households maximize the utility function subject to the intertemporal budget constraint
 
 #mitext(`
 \begin{equation}
@@ -151,19 +145,19 @@ a_{j+1, s, t}=\left\{\begin{array}{l}
 \end{equation}
 `)
 
-donde:
+where:
 
-- #mitext(`$a_{j, t}$ son los ahorros-activos del agente en el periodo t ,`)
-- #mitext(`$w_t^n=w_t\left(1-\tau_t^w-\tau_{j, t}^{i m p l} \right)$ es la tasa de salario neto, la cual es igual al salario de mercado $w_t$ menos los impuestos por ingreso laboral $\tau_{j, t}^{i m p l}$ y el impuesto de nómina para financiar el sistema de pensión $\tau_t^p$`)
-- #mitext(`$r_t^n=r_t\left(1-\tau_t^r\right)$ es la tasa de interés neta, que es igual a la tasa de interés de mercado $r_t$ descontando el impuesto por ingresos de capital $\tau_t^r$,`)
-- #mitext(`$p_t=1+\tau_t^c$ es el precio al consumidor el cual se normaliza a uno y se agregan los impuestos al consumo $\tau_t^c$.`)
+- #mitext(`$a_{j, t}$ These are the agent's savings assets in the period t ,`)
+- #mitext(`$w_t^n=w_t\left(1-\tau_t^w-\tau_{j, t}^{i m p l} \right)$ It is the net wage rate, which is equal to the market wage $w_t$ less taxes on employment income $\tau_{j, t}^{i m p l}$ and the payroll tax to finance the pension system $\tau_t^p$`)
+- #mitext(`$r_t^n=r_t\left(1-\tau_t^r\right)$ It is the net interest rate, which is equal to the market interest rate. $r_t$ deducting the capital gains tax $\tau_t^r$,`)
+- #mitext(`$p_t=1+\tau_t^c$ It is the consumer price which is normalized to one and the consumption taxes are added $\tau_t^c$.`)
 
 
-Se agrega una restricción adicional de no negatividad de los ahorros #mitext(`$a_{j+1, s} \geq 0$`)
+An additional non-negativity restriction on savings is added. #mitext(`$a_{j+1, s} \geq 0$`)
 
-== Problema de programación dinámica
+== Dynamic programming problem
 
-El problema de optimización de los agentes es el siguiente:
+The agent optimization problem is as follows:
 
 #mitext(`
 
@@ -180,15 +174,15 @@ V_t(j, a, ep, s, \eta) & =\max _{c, l, a^{+}, ep^{+}} u(c, 1-l)+\beta \psi_{j+1}
 \end{aligned}
 \end{equation}
 
-donde $z=(j, a, ep, s, \eta)$ es el vector de variables de estado individuales. Nótese que se colocó un índice de tiempo en la función de valor y en los precios. Esto es necesario para calcular la dinámica de la transición entre dos estados estacionarios. La condición terminal de la función de valor es
+where $z=(j, a, ep, s, \eta)$ is the vector of individual state variables. Note that a time index was placed on the value function and on the prices. This is necessary to calculate the dynamics of the transition between two stationary states. The terminal condition of the value function is
 
 $$
 V_t(z)=0 \quad \text { para } \quad z=(J+1, a, ep, s, \eta)
 $$
 
-que significa que se asume que los agentes no valoran lo que sucede después de la muerte.
+which means that it is assumed that the agents do not value what happens after death.
 
-Formulamos la solución de problema de los hogares al reconocer que podemos escribir las funciones de horas laborales y de consumo como funciones de $a^{+}$:
+We formulate the solution to the household problem by recognizing that we can write the working hours and consumption functions as functions of $a^{+}$:
 
 $$
 \begin{aligned}
@@ -199,7 +193,7 @@ $$
 
 
 
-Con la definición de la \textbf{implicit tax rate} (Ver siguiente sección), las condiciones de primer orden de los hogares se definen como
+With the definition of the \textbf{implicit tax rate} (See next section), The first-order conditions of households are defined as
 
 \begin{equation}
 \begin{aligned}
@@ -208,12 +202,12 @@ Con la definición de la \textbf{implicit tax rate} (Ver siguiente sección), la
 \end{aligned}
 \end{equation}
 
-donde $a^{+}$es desconocido. Nótese que $\tau_{j, t}^{i m p l} = \tau_{t}^p$ para $\lambda = 1$, lo que se reduce al modelo original.
+where $a^{+}$ is unknown. Note that $\tau_{j, t}^{i m p l} = \tau_{t}^p$ para $\lambda = 1$, which reduces to the original model.
 `)
 
-=== Ingresos y egresos de los hogares por el sistema de pensiones
-A la edad obligatoria de retiro $j_r$, la productividad laboral cae a cero y 
-los hogares reciben una pensión $p e n_(j,t)$ , la cual está en función del historial salarial del individuo. Con el objetivo de hacer un seguimiento y contabilizar los salarios pasados así como las contribuciones a pensiones, se agrega un estado *earning points*, $e p$, el cual captura los ingresos brutos individuales relativos al ingreso promedio de la economía completa para cada año de contribución#footnote[Este mecanismo de seguimiento de ingresos es tomado de @fehr2013should, el cual es como funciona el sistema de pensiones alemán.] @fehr2013should
+=== Household income and expenses through the pension system
+At the mandatory retirement age $j_r$, labor productivity falls to zero and
+Households receive a pension $p e n_(j,t)$ , which is based on the individual's salary history. In order to track and account for past salaries as well as pension contributions, an *earning points* statement is added, $e p$, which captures individual gross incomes relative to the average income of the entire economy for each year of contribution#footnote[This revenue tracking mechanism is taken from @fehr2013should, which is how the German pension system works.] @fehr2013should
 
 
 #mitext(`
@@ -222,7 +216,7 @@ e p_{j+1}=\left[e p_j \times(j-1)+\left(\lambda+(1-\lambda) \frac{w h l_j}{\bar{
 \end{equation}
 `)
 
-donde el parámetro $lambda$ indica el nivel de *progresividad* del sistema de pensiones @fehr2018introduction. Cuando $lambda = 1$ la pensión es independiente de las contribuciones previas y es igual a la fracción de la tasa de reemplazo $kappa$ del sistema de pensiones del ingreso laboral promedio en el periodo $t$, esto es:
+where the parameter $lambda$ indicates the level of *progressivity* of the pension system @fehr2018introduction. When $lambda = 1$ The pension is independent of previous contributions and is equal to the fraction of the pension system's replacement rate $kappa$ of the average labor income in the period $t$, this is:
 
 
 #mitext(`
@@ -231,7 +225,7 @@ $$
 $$
 `)
 
-Cuando $lambda = 0$, la pensión depende enteramente del historial salarial. Durante la fase de retiro de la trabajadora $j gt.eq j_r $, los puntos salariales quedan constantes y la pensión se calcula como 
+When $lambda = 0$, The pension depends entirely on the worker's salary history. During the worker's retirement phase $j gt.eq j_r $, Salary points remain constant and the pension is calculated as
 
 #mitext(`
 \begin{equation}
@@ -239,19 +233,18 @@ Cuando $lambda = 0$, la pensión depende enteramente del historial salarial. Dur
 \end{equation}
 `)
 
-Los earning points evolucionan de acuerdo a la ecuación:
-
+The earning points evolve according to the equation:
 #mitext(`
 \begin{equation}
 e p^{+}= \begin{cases}\frac{j-1}{j} \cdot e p+\frac{1}{j} \cdot\left[\lambda+(1-\lambda) \cdot \frac{w_t h l}{y_t}\right] & \text { si } j<j_r,  \\ e p & \text { en caso contrario. }\end{cases}
 \end{equation}
 `)
 
-Esta ecuación integre dos partes:
-- La fase de acumulación, $j lt.small j_r $
-- La fase de rendimientos, $j gt.eq j_r $
+This equation integrates two parts:
+- The accumulation phase, $j lt.small j_r $
+- The yield phase, $j gt.eq j_r $
 
-La restricción presupuestaria de los hogares cambia a :
+The household budget constraint changes to:
 
 #mitext(`
 \begin{equation}
@@ -259,9 +252,9 @@ a^{+}+p_t c=\left(1+r_t^n\right) a+w_t^n h l+\mathbb{1}_{j \geq j_r} \kappa_t \b
 \end{equation}
 `)
 
-El beneficio de la pensión se obtiene hasta que se alcanza la edad de retiro $j_r$ y es igual al producto de la tasa de reemplazo actual $kappa_t$, el ingreso promedio $overline(y)$ así como también los puntos de ingreso acumulado por la trabajadora $e p$.
+The pension benefit is received until retirement age is reached $j_r$ and is equal to the product of the current replacement rate $kappa_t$, the average income $overline(y)$ as well as the points of income accumulated by the worker $e p$.
 
-El Lagrangeano del problema de optimización del hogar se escribe : 
+The Lagrangian of the household optimization problem is written:
 
 #mitext(`
 \begin{equation}
@@ -274,7 +267,7 @@ El Lagrangeano del problema de optimización del hogar se escribe :
 \end{equation}
 `)
 
-con las siguientes condiciones de primer orden:
+with the following first-order conditions:
 
 #mitext(`
 \begin{equation}
@@ -285,7 +278,7 @@ con las siguientes condiciones de primer orden:
 \end{equation}
 `)
 
-Cuando $lambda = 1$, la parte de la ecuación
+When $lambda = 1$, the part of the equation
 
 #mitext(`
 \begin{equation}
@@ -293,9 +286,9 @@ Cuando $lambda = 1$, la parte de la ecuación
 \end{equation}
 `)
 
-Se hace cero, y nos enfrentamos al caso base de una pensión flat, independiente de las contribuciones previas.
+It becomes zero, and we are faced with the base case of a flat pension, independent of previous contributions.
 
-Del teorema del envolvente se obtiene:
+From the envelope theorem we obtain:
 
 #mitext(`
 \begin{equation}
@@ -307,7 +300,7 @@ V_{e p^{+}}\left(z^{+}\right)= & \mathbb{1}_{j+1 \geq j_r} \cdot \kappa_{t+1} \b
 \end{equation}
 `)
 
-Iterando la condición de primer orden hacia adelante, obtenemos:
+Iterating the first-order condition forward, we obtain:
 
 #mitext(`
 \begin{equation}
@@ -315,9 +308,9 @@ Iterando la condición de primer orden hacia adelante, obtenemos:
 \end{equation}
 `)
 
-para $i lt.small j$.
+For $i lt.small j$.
 
-Para la edad $j+1 = j_r$, la segunda ecuación del envolvente se reduce a
+For age $j+1 = j_r$, the second equation of the envelope reduces to
 
 #mitext(`
 \begin{equation}
@@ -325,7 +318,7 @@ V_{e p}\left(z_{j_r}\right)=\kappa_{t+1} \bar{y}_{t+1} \cdot \frac{v}{p_{t+1}} \
 \end{equation}
 `)
 
-con $s = t +1 +i -j_r$. Para cualquier $j+1 lt.small j_r$, tenemos
+with $s = t +1 +i -j_r$. For any $j+1 lt.small j_r$, we have
 
 #mitext(`
 \begin{equation}
@@ -338,7 +331,7 @@ V_{e p}\left(z_{j+1}\right) & =\frac{j}{j+1} \cdot \beta E\left[V_{e p}\left(z_{
 \end{equation}
 `)
 
-Sustituyendo $(II)$ tenemos 
+Substituting $(II)$ we have
 
 #mitext(`
 \begin{equation}
@@ -346,7 +339,7 @@ Sustituyendo $(II)$ tenemos
 \end{equation}
 `)
 
-con $s = t+i-j$. Sustituyendo ahora la ecuación $(I)$, tenemos:
+with $s = t+i-j$. Now substituting the equation $(I)$, we have:
 
 
 #mitext(`
@@ -355,10 +348,10 @@ con $s = t+i-j$. Sustituyendo ahora la ecuación $(I)$, tenemos:
 \end{equation}
 `)
 
-con $s = t+i-j$. 
+with $s = t+i-j$. 
 
 
-En consecuencia, definimos la *tasa de impuesto implícita* del sistema de pensiones como
+Therefore, we define the *implicit tax rate* of the pension system as
 
 #mitext(`
 \begin{equation}
@@ -366,29 +359,29 @@ En consecuencia, definimos la *tasa de impuesto implícita* del sistema de pensi
 \end{equation}
 `)
 
-Esta tasa de impuesto implícita toma en cuenta que, si $lambda lt.small 1$, los pagos a pensiones se incrementan al incrementarse los ingresos laborales y, como consecuencia, las contribuiciones a pensiones también se incrementan. Por lo tanto, las contribuciones  $tau_t^p$ son distintas para cada hogar.
+This implicit tax rate takes into account that, if $lambda lt.small 1$, Pension payments increase as employment income increases, and consequently, pension contributions also increase. Therefore, contributions $tau_t^p$ They are different for each household.
 
 /*
-== Agregación
+== Aggregation
 
-Con el objetivo de agregar las decisiones individuales para cada elemento del espacio de estados a las cantidades agregadas de la economía, necesitamos determinar la distribución de los hogares ϕt(z)ϕt​(z) en el espacio de estados. Se asume que, de alguna manera, hemos discretizado el espacio de estados. Podemos aplicar el procedimiento descrito por @fehr2018introduction.
+In order to aggregate individual decisions for each element of the state space to the aggregate quantities of the economy, we need to determine the distribution of households ϕt(z)ϕt​(z) in the state space. It is assumed that we have somehow discretized the state space. We can apply the procedure described by @fehr2018introduction.
 
 #mitext(`
-Se sabe  que a la edad $j=1$ los hogares mantienen cero activos, y que experimentan shock de productividad permanente $\hat{\theta}_i$ con probabilidad $\pi_i^\theta$, como también un shock transitorio en la productividad de $\eta_1=0$. De manera que tenemos:
+It is known that at the age $j=1$ Households maintain zero assets, and experience a permanent productivity shock $\hat{\theta}_i$ with probability $\pi_i^\theta$, as well as a transient shock in productivity from $\eta_1=0$. So we have:
 
 $$
 \phi_t\left(1,0, \hat{\theta}_i, \hat{\eta}_g\right)= \begin{cases}\pi_i^\theta & \text { si } g=\frac{m+1}{2} \\ 0 & \text { en otro caso. }\end{cases}
 $$
 
 
-Conociendo la distribución de los hogares sobre el espacio de estados a la edad 1 podemos calcular la distribución de cualquier combinación sucesiva edad-año al utilizar la función de política $a_t^{+}(z)$. Específicamente, para cada elemento del espacio de estados $z$ a la edad $j$ y tiempo $t$, podemos calcular los nodos de interpolación izquierdo y derecho, $\hat{a}_l$ y $\hat{a}_r$, como también el correspondiente peso de interpolación $\varphi$. Los nodos y el peso satisfacen
+Knowing the distribution of households over state space at age 1, we can calculate the distribution of any successive age-year combination using the policy function $a_t^{+}(z)$. Specifically, for each element of the state space $z$ at age $j$ and time $t$, we can calculate the left and right interpolation nodes, $\hat{a}_l$ and $\hat{a}_r$, as well as the corresponding interpolation weight $\varphi$. The nodes and weight satisfy
 
 $$
 a_t^{+}(z)=\varphi \hat{a}_l+(1-\varphi) \hat{a}_r
 $$
 
 
-Tomando en cuenta las probabilidades de transición para el shock de productividad transitorio $\eta_{g g^{+}}$, se distribuye la masa de individuos en el estado $z$ al espacio de estados correspondiente a la edad y periodo siguientes $j+1$ y $t+$ 1 de acuerdo a la siguiente expresión:
+Taking into account the transition probabilities for the transient productivity shock $\eta_{g g^{+}}$, The mass of individuals in state $z$ is distributed to the state space corresponding to the following age and period $j+1$ and $t+1 according to the following expression:
 
 $$
 \begin{aligned}
@@ -399,15 +392,15 @@ $$
 \end{aligned}
 $$
 
-con $z^{+}=\left(j+1, \hat{a}_\nu, \hat{\theta}_i, \hat{\eta}_{g^{+}}\right)$
+with $z^{+}=\left(j+1, \hat{a}_\nu, \hat{\theta}_i, \hat{\eta}_{g^{+}}\right)$
 
-La medida de distribución $\phi_t(z)$ satisface
+The distribution measure $\phi_t(z)$ satisfies
 
 $$
 \sum_{\nu=0}^n \sum_{i=1}^2 \sum_{g=1}^m \phi_t(z)=1
 $$
 
-para cualquier edad $j$ al tiempo $t$. De manera que podemos calcular agregados específicos a cada cohorte
+for any age $j$ at time $t$. So we can calculate aggregates specific to each cohort
 
 $$
 \begin{gathered}
@@ -417,7 +410,7 @@ $$
 \end{gathered}
 $$
 
-Para cada una de esas agregaciones a nivel de cohorte, podemos calcular las cantidades para el conjunto de la economía. Para esto, tenemos que ponderar las variables de cada cohorte con el respectivo tamaño relativo de cada cohorte $m_j$ y su probabilidad de supervivencia $\psi_j$. En consecuencia, tenemos
+For each of these cohort-level aggregations, we can calculate the quantities for the entire economy. To do this, we need to weight the variables of each cohort by its respective relative size $m_j$ and its survival probability $\psi_j$. Consequently, we have
 
 $$
 \begin{aligned}
@@ -428,22 +421,22 @@ A_t & =\sum_{j=1}^J \frac{m_{j, t}}{\psi_{j, t}} \bar{a}_{j, t}
 $$
 `)
 */
-== Tecnología 
+== Technology 
 #mitext(`
-Las empresas contratan capital $K_t$ y trabajo $L_t$ en un mercado de factores perfectamente competitivo para producir un único bien $Y_t$ de acuerdo a una tecnología de producción dada por una función de producción Cobb-Douglas
+Firms hire capital $K_t$ and labor $L_t$ in a perfectly competitive factor market to produce a single good $Y_t$ according to a production technology given by a Cobb-Douglas production function
 
 $$
 Y_t=\Omega K_t^\alpha L_t^{1-\alpha}
 $$
 
-donde $\Omega$ es el nivel de tecnología que es constante en el tiempo. El capital se deprecia a una tasa $\delta$, de manera que el stock de capital evoluciona de acuerdo a la siguiente expresión
+where $\Omega$ It is the level of technology that is constant over time. Capital depreciates at a rate $\delta$, so the capital stock evolves according to the following expression
 
 $$
 \left(1+n_p\right) K_{t+1}=(1-\delta) K_t+I_t
 $$
 
 
-Bajo el supuesto de competencia perfecta, las funciones inversas a la demanda de capital y trabajo de la empresa están dadas por
+Under the assumption of perfect competition, the inverse functions of the firm's demand for capital and labor are given by
 
 $$
 \begin{aligned}
@@ -454,50 +447,50 @@ $$
 
 `)
 
-== Gobierno
+== Government
 #mitext(`
-El gobierno administra dos sistemas : un sistema de impuestos y un sistema de pensiones, ambos operando en equilibrio presupuestario.
+The government manages two systems: a tax system and a pension system, both operating in budgetary balance.
 
-El gobierno recolecta impuestos sobre el el gasto en consumo, ingreso laboral e ingreso de capital con el objetivo de financiar su gasto público $G_t$ y pagos relacionados al stock de deuda $B_t$. En el equilibrio inicial, el gasto público es igual a una razón constante del GDP, esto es, $G=g_y Y$. En periodos posteriores, el nivel de bienes públicos se mantiene constante (per cápita), lo que significa que $G_t=G$. Lo mismo aplica para la deuda pública, donde la razón inicial es denominada $b_y$. En cualquier punto en el tiempo el presupuesto del sistema de impuestos es balanceado si se cumple la igualdad
+The government collects taxes on consumption expenditure, labor income, and capital income to finance its public spending $G_t$ and debt-related payments $B_t$. In the initial equilibrium, public spending equals a constant ratio of GDP, that is, $G=g_y Y$. In subsequent periods, the level of public goods remains constant (per capita), meaning that $G_t=G$. The same applies to public debt, where the initial ratio is denoted $b_y$. At any point in time, the tax system's budget is balanced if the following equality holds:
 
 $$
 \tau_t^c C_t+\tau_t^w w_t L_t^s+\tau_t^r r_t A_t+\left(1+n_p\right) B_{t+1}=G_t+\left(1+r_t\right) B_t
 $$
 
 
-Además de los ingresos por impuestos, el gobierno financia su gasto al contratar nueva deuda $\left(1+n_p\right) B_{t+1}$. Sin embargo, debe repagar la actual deuda incluyendo intereses sobre los pagos de manera que tenemos que agregar $\left(1+r_t\right) B_t$ al consumo de gobierno en el lado del gasto. De manera que, en un equilibrio de estado estacionario, el gasto $\left(r-n_p\right) B$ refleja el costo necesitado para mantener el nivel de deuda constante. Nótese que no se ha hecho ninguna restricción a priori acerca de que tasa de impuesto tiene que ajustarse con el objetivo de balancear el presupuesto en el tiempo.
+In addition to tax revenues, the government finances its spending by taking on new debt $\left(1+n_p\right) B_{t+1}$. However, it must repay the existing debt, including interest on the payments, so we have to add $\left(1+r_t\right) B_t$ to government consumption on the expenditure side. Thus, in a steady-state equilibrium, spending $\left(r-n_p\right) B$ reflects the cost needed to keep the debt level constant. Note that no a priori constraint has been placed on which tax rate needs to be adjusted to balance the budget over time.
 
-El sistema de pensiones opera en un esquema pay-as-you-go, lo que significa que recolecta contribuciones de las generaciones en edad de trabajar y directamente las distribuye a los retirados actuales. La ecuación de balance del presupuesto del sistema de pensiones está dada por
+The pension system operates on a pay-as-you-go scheme, meaning it collects contributions from the working-age generation and distributes them directly to current retirees. The pension system's budget balance equation is given by
 
 $$
 \tau_t^p w_t L_t^{\text{supply}, s=0}=\text{pen}_t N^R \quad \text { con } \quad N^R=\sum_{j=j_r}^J m_{j, s=0} \psi_j
 $$
 
-donde $N^R$ denota la cantidad de retirados formales.
+where $N^R$ denotes the number of formal retirees.
 
-Se asume que la tasa de reemplazo $\kappa$ está dada de forma exógena mientras que la tasa de contribución $\tau_t^p$ se ajusta con el objetivo de balancear el presupuesto.
+It is assumed that the replacement rate $\kappa$ is given exogenously while the contribution rate $\tau_t^p$ is adjusted with the aim of balancing the budget.
 
-El beneficio de la pensión se calcula por la suma de earnings points acumulados durante el periodo laboral y el \textit{monto actual de pensión}, APA\footnote{Actual Pension Amount.} que refleja el valor monetario de cada earning point, multiplicado por la tasa de reemplazo $\kappa$ 
+The pension benefit is calculated by the sum of earnings points accumulated during the working period and the \textit{current pension amount}, APA\footnote{Actual Pension Amount.} which reflects the monetary value of each earning point, multiplied by the replacement rate $\kappa$ 
 
 \begin{equation}
 p_j = \kappa \times \text{ep}_{j_r} \times \text{APA}
 \end{equation}
 
-Con el tiempo, APA crece con los ingresos laborales brutos.
+Over time, APA grows with gross labor income.
 `)
 
-== Mercados
+== Market
 #mitext(`
-Hay tres mercados en la economía : mercado de capital, mercado de trabajo y el mercado de bienes. Con respecto a los mercados de factores, el precio del capital $r_t$ y del trabajo $w_t$ se ajustan para limpiar el mercado, esto es:
+There are three markets in the economy: the capital market, the labor market, and the goods market. With respect to the factor markets, the price of capital $r_t$ and labor $w_t$ adjust to clear the market; that is:
 
 $$
 K_t+B_t=A \quad \text { y } \quad L_t=L_t^s
 $$
 
 
-Nótese que hay dos sectores que demandan ahorro de los hogares. El sector de empresas emplea ahorro como capital en el proceso de producción, mientras que el gobierno lo usa como deuda pública con el objetivo de financiar su gasto. El gobierno y las empresas compiten en competencia perfecta en el mercado de capital.
+Note that there are two sectors that demand savings from households. The business sector uses savings as capital in the production process, while the government uses them as public debt to finance its spending. The government and businesses compete in perfect competition in the capital market.
 
-Con respecto al mercado de bienes, todos los productos producidos deben ser utilizados ya sea como consumo por parte del sector privado o por el gobierno, o en forma de inversión en el futuro stock de capital. Así, el equilibrio en el mercado de bienes está dado por
+With respect to the goods market, all products produced must be used either for consumption by the private sector or the government, or as investment in the future capital stock. Thus, equilibrium in the goods market is given by
 
 $$
 Y_t=C_t+G_t+I_t
